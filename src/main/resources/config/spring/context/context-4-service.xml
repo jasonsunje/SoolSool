@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- Root Context: defines shared resources visible to all other web components -->
+
+	<bean id="adminLoginService"
+		class="service.admin.login.AdminLoginService">
+		<constructor-arg ref="adminDao" />
+	</bean>
+
+	<bean id="adminMemberService"
+		class="service.admin.member.AdminMemberService">
+		<constructor-arg ref="adminDao" />
+	</bean>
+
+	<bean id="adminUuserService" class="service.admin.uuser.AdminUuserService">
+		<constructor-arg ref="uuserDao"/>
+	</bean>
+
+	<bean id="adminProductService"
+		class="service.admin.product.AdminProductService">
+		<constructor-arg ref="productDao" />
+	</bean>
+
+	<bean id="productService" class="service.product.ProductService">
+		<constructor-arg ref="productDao" />
+	</bean>
+
+	<bean id="boardService" class="service.board.BoardService">
+		<constructor-arg ref="boardDao" />
+	</bean>
+
+	<bean id="mngdeliveryService"
+		class="service.mngdelivery.MngdeliveryService">
+		<constructor-arg ref="mngdeliveryDao" />
+	</bean>
+
+	<bean id="uuserService" class="service.uuser.UuserService">
+		<constructor-arg ref="uuserDao" />
+		<property name="porderDAO" ref="porderDao"></property>
+	</bean>
+
+	<bean id="reviewService" class="service.review.ReviewService">
+		<constructor-arg ref="ReviewDao" />
+		<property name="uuserDAO" ref="uuserDao"></property>
+	</bean>
+
+	<bean id="csService" class="service.cs.CsService">
+		<constructor-arg ref="CsDao" />
+		<property name="uuserDAO" ref="uuserDao"></property>
+	</bean>
+
+	<bean id="cartService" class="service.cart.CartService">
+		<constructor-arg ref="cartDao" />
+	</bean>
+
+
+	<bean id="porderService" class="service.porder.PorderService">
+		<constructor-arg ref="porderDao" />
+	</bean>
+	
+	<bean id="loginService" class="service.login.LoginService">
+		<property name="uuserDao" ref="uuserDao"/> 
+	</bean>
+	
+</beans>

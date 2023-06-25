@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="review">
+
+	<select id="selectList" resultType="map" parameterType="map">
+		select * from 
+			(select rownum rn,t.* from
+				(select r.*,u.uuser_nickname,u.uuser_id from review r,uuser u where u.uuser_no = r.uuser_no and r.uuser_no = #{uuserNo}
+				 order by r.groupno desc,orderno asc,depth asc) t
+			)
+		<!-- <![CDATA[
+			where rn >= #{first} and rn <= #{last}
+		]]> -->
+
+	</select>
+
+	<select id="selectOne" resultType="review" parameterType="int">
+		select * from review r, uuser u where r.uuser_no = u.uuser_no
+	</select>
+
+	<select id="getTotal" resultType="int" parameterType="map">
+		select count(*) from review r, uuser u where r.uuser_no = u.uuser_no
+	</select>
+
+	<!-- 내용가져오기 ( 상품상세 ) -->
+	<select id="getContent" parameterType="int" resultType="map">
+		select r.*,u.uuser_id,u.uuser_nickname from review r, uuser u where r.uuser_no = u.uuser_no
+	</select>
+
+	<insert id="insert" parameterType="review">
+		insert into review values(review_seq.nextVal,#{uuserNo},#{productNo},#{reviewStar},#{reviewPhoto},#{reviewContent},sysdate,#{reviewPcheck},#{couponNo},#{groupno},#{orderno},#{depth})
+	</insert>
+	
+	<delete id="delete" parameterType="int">
+		delete review where review_no = #{review_no}
+	</delete>
+	
+	<update id="update" parameterType="review">
+		update review set review_star=#{reviewStar},review_photo=#{reviewPhoto},review_content=#{reviewContent},review_date=SYSDATE where review_no=#{reviewNo}
+	</update>
+	
+	<select id="getSeq" resultType="int">
+		select review_seq.nextval from dual
+	</select>
+	
+	
+	<!-- 가장마지막에쓴댓글을 위로 -->
+	<update id="updateOrderno" parameterType="review">
+		update review set orderno = orderno + 1 where groupno=#{groupno} and orderno >= #{orderno}
+	</update>
+
+
+
+
+
+</mapper>

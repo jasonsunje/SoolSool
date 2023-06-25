@@ -1,0 +1,957 @@
+@charset "UTF=8";
+
+@import url('layout.css');
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700&family=Roboto:wght@100;300;400;700&display=swap');
+
+#buy_select,
+#product {
+    width: 1205PX;
+    margin: auto;
+}
+
+/*구매상단 */
+#toptop {
+    width: 100%;
+    border-top: 1px solid #8f8f8f;
+}
+
+#buy_select {
+    position: relative;
+}
+
+/*경로*/
+#buy_select #link {
+    position: absolute;
+    top: 38px;
+    right: 8px;
+    font: normal 13px 'Nanum Gothic', sans-serif;
+    color: #717171;
+}
+
+#buy_select #link li {
+    float: left;
+}
+
+#buy_select #link li:last-child {
+    color: #fff;
+    font-weight: bold;
+}
+
+
+/*메인 왼쪽*/
+
+/*메인 상품 이미지*/
+#buy_select > #buy_top > #buy_left {
+    width: 598px;
+    height: 951px;
+    float: left;
+}
+
+#buy_select > #buy_top > #buy_left > #main_p > .main_pp {
+    height: 584px;
+    padding-left: 9px;
+    padding-top: 130px;
+    position: relative;
+    margin-bottom: 43px;
+}
+
+/*메인 이미지 아래 작은 포토리뷰 미리보기*/
+#ptoto_r > h4 {
+    color: #6d6d6d;
+    font: bold 15px/20px 'Nanum Gothic', sans-serif;
+}
+
+#ptoto_r > .line {
+    box-sizing: border-box;
+    width: 533px;
+    height: 104px;
+    border: 1px solid #dcdcdc;
+}
+
+#ptoto_r > .line > * {
+    float: left;
+    padding-top: 24px;
+    padding-bottom: 12px;
+
+}
+
+#ptoto_r > .line > div > ul > li {
+    padding-left: 16px;
+    float: left;
+}
+
+#ptoto_r > .line > div > ul > li:first-child {
+    padding-left: 9px;
+}
+
+#ptoto_r > .line > div > ul > li:last-child {
+    padding-right: 9px;
+}
+
+#ptoto_r > .line > a {
+    padding-top: 47px;
+}
+
+#ptoto_r > .line > a:first-child {
+    padding-left: 5px;
+}
+
+#ptoto_r > .line > a:last-child {
+    padding-right: 2px;
+}
+
+
+
+/*메인 오른쪽_ 상품 이름이랑 가격 및 재입고 알림설정*/
+#buy_select > #buy_top > #buy_right {
+    width: 607px;
+    height: 951px;
+    float: left;
+    box-sizing: border-box;
+    padding-top: 112px;
+}
+
+#buy_select > #buy_top > #buy_right > #p_info {
+
+    width: 602px;
+    border-bottom: 2px solid #000;
+    padding-bottom: 18px;
+    overflow: hidden;
+    margin-bottom: 26px;
+}
+
+#buy_select > #buy_top > #buy_right > #p_info > h3 {
+    font: bold 23px/51px 'Nanum Gothic', sans-serif;
+    color: #000;
+}
+
+#buy_select > #buy_top > #buy_right > #p_info > p {
+    float: left;
+}
+
+#buy_select > #buy_top > #buy_right > #p_info > .price {
+    font: bold 17px 'Nanum Gothic', sans-serif;
+    color: #000;
+    padding-left: 8px;
+}
+
+#buy_select > #buy_top > #buy_right > #p_info > .price > .sale {
+    color: red;
+    font: normal 16px 'Nanum Gothic', sans-serif;
+    text-decoration: line-through;
+    padding-left: 8px;
+}
+
+#buy_select > #buy_top > #buy_right > #p_info > .alram {
+    display: inline-block;
+    box-sizing: border-box;
+    margin-left: 19px;
+    background-color: #ccc;
+    width: 119px;
+    height: 19px;
+    font: 13px/19px 'Nanum Gothic', sans-serif;
+    text-align: center;
+    border-radius: 5px;
+}
+
+#buy_select > #buy_top > #buy_right > #p_info > .alram > a {
+    color: #000;
+}
+
+#buy_select > #buy_top > #buy_right > #p_info > .alram:hover > a {
+    color: #fff;
+}
+
+
+/*배송방법 및 선택창*/
+
+#buy_select > #buy_top > #buy_right > #select > table {
+    height: 509px;
+    width: 602px;
+    margin-bottom: 37px;
+    box-sizing: border-box;
+}
+
+#select .tr {
+    height: 34px;
+    width: 124px;
+}
+
+#select .tr th {
+    text-align: left;
+    padding-left: 4px;
+    font: normal 15px/34px 'Nanum Gothic', sans-serif;
+    color: #4d4d4d;
+}
+
+#select .tr td {
+    text-align: left;
+    padding-left: 15px;
+    font: normal 15px/34px 'Nanum Gothic', sans-serif;
+    color: #4d4d4d;
+}
+
+
+
+/*사이즈 선택*/
+#select #s_size {}
+
+#select #s_size th {
+    height: 86px;
+    text-align: left;
+    padding-left: 3px;
+    font: 18px 'Nanum Gothic', sans-serif;
+    color: #000;
+}
+
+#select #s_size td {}
+
+#select #s_size ul {}
+
+#select #s_size li {
+    float: left;
+    width: 45px;
+    height: 47px;
+    padding-left: 10px;
+}
+
+#select #s_size li:first-child {
+    padding-left: 126px;
+}
+
+#select #s_size a {
+    display: block;
+    width: 45px;
+    height: 47px;
+    color: #adadad;
+    font: 15px/47px 'Nanum Gothic', sans-serif;
+    text-align: center;
+    border: 2px solid #adadad;
+    border-radius: 10px;
+}
+
+#select #s_size a:hover {
+    color: #000;
+    font-weight: bold;
+    border-color: #000;
+}
+
+#select #cm {}
+
+#select #cm th {
+    height: 86px;
+    text-align: left;
+    padding-left: 3px;
+    box-sizing: border-box;
+    font: 18px 'Nanum Gothic', sans-serif;
+    color: #000;
+}
+
+#select #cm td {}
+
+#select #cm ul {}
+
+#select #cm li {
+    float: left;
+    padding-left: 8px;
+    margin-bottom: 20px;
+}
+
+#select #cm li:first-child {
+    padding-left: 345px;
+}
+
+#select #cm a {
+    display: block;
+    width: 45px;
+    height: 47px;
+    color: #adadad;
+    font: 15px/47px 'Nanum Gothic', sans-serif;
+    text-align: center;
+    border: 2px solid #adadad;
+    border-radius: 10px;
+}
+
+#select #cm a:hover {
+    color: #000;
+    font-weight: bold;
+    border-color: #000;
+}
+
+#select #color {}
+
+#select #color th {
+    text-align: left;
+    padding-left: 3px;
+    font: 18px 'Nanum Gothic', sans-serif;
+    color: #000;
+    height: 122px;
+    box-sizing: border-box;
+    padding-bottom: 40px;
+}
+
+#select #color td {}
+
+#select #color ul {}
+
+#select #color li {
+    height: 85px;
+    margin-left: 257px;
+    padding-bottom: 40px;
+
+}
+
+#select #color li:nth-of-type(1) {
+    float: left;
+    width: 76px;
+    box-sizing: border-box;
+    background-image: url(../images/sub/black_1.png);
+    margin-bottom: 40px;
+}
+
+#select #color li:nth-of-type(2) {
+    float: left;
+    width: 76px;
+    margin-left: 10px;
+    box-sizing: border-box;
+    background-image: url(../images/sub/leo_1.png);
+}
+
+#select #color li:nth-of-type(3) {
+    float: left;
+    width: 76px;
+    margin-left: 10px;
+    box-sizing: border-box;
+    background-image: url(../images/sub/b_1.png);
+}
+
+
+#select #color a {
+    display: block;
+    text-align: center;
+    width: 76px;
+    padding-top: 85px;
+    font: 14px 'Nanum Gothic', sans-serif;
+    color: #d2d2d2;
+}
+
+#select #color li:nth-of-type(1):hover {
+    background-image: url(../images/sub/black_2.png);
+}
+
+#select #color li:nth-of-type(2):hover {
+    background-image: url(../images/sub/leo_2.png);
+}
+
+#select #color li:nth-of-type(3):hover {
+    background-image: url(../images/sub/b_2.png);
+}
+
+#select #color a:hover {
+    color: #000;
+}
+
+
+
+/*총 결제금액*/
+
+#select #price {
+    border-top: 2px solid #000;
+    border-bottom: 2px solid #000;
+}
+
+#select #price th {
+    height: 62px;
+    text-align: left;
+    padding-left: 3px;
+    font: 18px 'Nanum Gothic', sans-serif;
+    color: #000;
+    padding-top: 5px;
+    box-sizing: border-box;
+}
+
+#select #price td {
+    padding-top: 5px;
+    text-align: right;
+    padding-right: 11px;
+    font: 18px 'Nanum Gothic', sans-serif;
+    box-sizing: border-box;
+}
+
+#select .p_0 {
+    font: bold 25px 'Nanum Gothic', sans-serif;
+}
+
+#select .total {}
+
+#buy {}
+
+#buy ul {}
+
+#buy li {
+    float: left;
+    width: 142px;
+    height: 41px;
+    background-color: #000;
+    border-radius: 10px;
+    margin-right: 15px;
+    box-sizing: border-box;
+    margin-bottom: 31px;
+}
+
+#buy a {
+    font: 20px/41px 'Nanum Gothic', sans-serif;
+    color: #fff;
+    display: block;
+    text-align: center;
+}
+
+#buy li:first-child {
+    margin-left: 240px;
+}
+
+#buy li:last-child {
+    width: 38px;
+    height: 32px;
+    background-image: url(../images/sub/wish.png);
+    background-color: #fff;
+    box-sizing: border-box;
+    margin-top: 5px;
+    text-indent: -9999px;
+}
+
+
+#buy li:last-child:hover {
+    background-image: url(../images/sub/wish2.png)
+}
+
+
+/*네이버*/
+#naver {
+    clear: both;
+    padding-left: 246px;
+    box-sizing: border-box;
+    width: 353px;
+    height: 88px;
+
+}
+
+#naver img {
+    border-top: 2px solid #000;
+    cursor: pointer;
+}
+
+
+
+
+#product,
+#product_top,
+#TIP,
+#P_return,
+#Review_top {
+    clear: both;
+}
+
+
+
+/*메인하단_ 바로가기 버튼*/
+#product input {
+    display: none;
+}
+
+#product label {
+    display: block;
+    float: left;
+    margin-right: 10px;
+    width: 215px;
+    height: 46px;
+    border: 1px solid #ccc;
+    font: 18px/46px 'Nanum Gothic', sans-serif;
+    color: #ccc;
+    text-align: center;
+    cursor: pointer;
+    margin-top: 136px;
+    margin-bottom: 10px;
+}
+
+#product > input:nth-of-type(1):checked ~ label:nth-of-type(1),
+#product > input:nth-of-type(2):checked ~ label:nth-of-type(2),
+#product > input:nth-of-type(3):checked ~ label:nth-of-type(3),
+#product > input:nth-of-type(4):checked ~ label:nth-of-type(4) {
+    border-color: #f60;
+    color: #f60;
+}
+
+/* 탭버튼 선택시 해당 내용 보이기 */
+#product input ~ #product_top,
+#TIP,
+#P_return,
+#Review_top {
+    display: none;
+}
+
+#product > input:nth-of-type(1):checked ~ #product_top:nth-of-type(1),
+#product > input:nth-of-type(2):checked ~ #TIP:nth-of-type(2),
+#product > input:nth-of-type(3):checked ~ #P_return:nth-of-type(3),
+#product > input:nth-of-type(4):checked ~ #Review_top:nth-of-type(4) {
+    display: block;
+}
+
+
+
+
+
+
+
+
+/*product*/
+
+#product {}
+
+
+
+
+/*상품 상세 이미지*/
+
+#product #product_top #pp_title {
+    text-align: right;
+    padding-right: 50px;
+    margin-top: 275px;
+    font: bold 18px/36px 'Nanum Gothic', sans-serif;
+    color: #4e4e4e;
+}
+
+#product #product_top p {}
+
+#product #product_top ul {
+    padding-left: 62px;
+    padding-right: 92px;
+}
+
+
+#product #product_top li {
+    margin-bottom: 55px;
+}
+
+#product #product_top p {
+    text-align: center;
+    margin-bottom: 100px;
+    font-family: 'Nanum Gothic', sans-serif;
+    font-size: 20px;
+}
+
+#product #product_top .inffo {
+    margin-bottom: 70px;
+}
+
+#product #product_top .detail1 {
+    font: bold 30px/45px 'Nanum Gothic', sans-serif;
+    color: #373636;
+    margin-bottom: 150px;
+
+}
+
+
+#product #product_top .detail2 {
+    font: 20px 'Nanum Gothic', sans-serif;
+    color: #222;
+
+}
+
+#product #product_top .detail2 .p_sub {
+    font-size: 18px;
+    color: #727272;
+}
+
+
+#product #product_top p:last-of-type {
+    margin-bottom: 300px;
+}
+
+
+
+
+
+
+/*신발 팁*/
+
+
+
+
+#product #TIP {
+    width: 1200px;
+    height: 1113px;
+    margin: auto;
+    background-image: url(../images/sub/TIP_c.png);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#product #TIP h3 {
+    font: 22px 'Nanum Gothic', sans-serif;
+    padding-top: 118px;
+    padding-left: 72px;
+}
+
+#product #TIP div {
+    width: 313px;
+    height: 397px;
+    float: left;
+}
+
+#product #TIP div:nth-of-type(1) {
+    padding-left: 172px;
+    padding-top: 74px;
+}
+
+#product #TIP div:nth-of-type(2) {
+    padding-top: 74px;
+    padding-left: 225px;
+}
+
+#product #TIP div:nth-of-type(3) {
+    padding-left: 172px;
+    clear: left;
+    float: left;
+}
+
+#product #TIP div:nth-of-type(4) {
+    padding-left: 225px;
+}
+
+#product #TIP div h5 {
+    font: bold 13px/54px 'Nanum Gothic', sans-serif;
+}
+
+#product #TIP div p {
+    font: 13px/20px 'Nanum Gothic', sans-serif;
+}
+
+
+
+
+
+
+
+/*교환및 반품 안내*/
+
+
+
+#product #P_return {
+    width: 1200px;
+    height: 1113px;
+    margin: auto;
+    background-image: url(../images/sub/TIP_c.png);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#product #P_return h3 {
+    font: 22px 'Nanum Gothic', sans-serif;
+    padding-top: 118px;
+    padding-left: 29px;
+}
+
+#product #P_return h5 {
+    font: bold 23px 'Nanum Gothic', sans-serif;
+    margin-bottom: 15px;
+}
+
+#product #P_return p {
+    font: 23px/32px 'Nanum Gothic', sans-serif;
+
+}
+
+#product #P_return .space {
+    padding-left: 23px;
+}
+
+#product #P_return .h5_sub {
+    color: #5a5a5a;
+}
+
+#product #P_return div:nth-of-type(1) {
+    padding-top: 120px;
+}
+
+#product #P_return div {
+    padding-left: 66px;
+    margin-bottom: 50px;
+}
+
+
+
+
+
+
+/*리뷰*/
+
+#product #Review_top .r_sub1 {
+    font: 13px/23px 'Nanum Gothic', sans-serif;
+    color: #9c9c9c;
+}
+
+#product #Review_top h3 {
+    padding-left: 43px;
+    float: left;
+    margin-right: 10px;
+    font: bold 17px 'Nanum Gothic', sans-serif;
+}
+
+#product #review_event {
+    margin-bottom: 203px;
+}
+
+
+#product #Review_top textarea {
+    width: 1122px;
+    height: 145px;
+    margin-left: 43px;
+}
+
+
+#product #Review_top .add_photo {
+    margin-left: 43px;
+    float: left;
+}
+
+#product #Review_top #star_selec {
+    width: 658px;
+    height: 37px;
+    margin-left: 5px;
+    overflow: hidden;
+    border: 1px solid #9c9c9c;
+    float: left;
+}
+
+#product #Review_top #star_selec ul {
+    width: 100%;
+    height: 100%;
+}
+
+#product #Review_top #star_selec ul li {
+    width: 100%;
+    height: 100%;
+    padding-top: 8px;
+}
+
+#product #Review_top #star_selec ul li .star_more {
+    padding-top: 6px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.add_more {
+    padding-top: 6px;
+    padding-left: 460px;
+    cursor: pointer;
+}
+
+#r_btn {
+    float: right;
+    padding-right: 35px;
+}
+
+
+#small_p_r {
+    clear: both;
+    box-sizing: border-box;
+    width: 1127px;
+    height: 119px;
+    border: 1px solid #444444;
+    margin-left: 43px;
+    margin-top: 80px;
+}
+
+#small_p_r > * {
+    float: left;
+    padding-top: 25px;
+    padding-bottom: 25px;
+}
+
+#small_p_r ul li {
+    padding-left: 11px;
+    float: left;
+}
+
+#small_p_r ul li:first-child {
+    padding-left: 0;
+}
+
+#small_p_r > .p_r_sub {
+    padding-left: 24px;
+    margin-right: 20px;
+}
+
+#small_p_r > a {
+    margin-right: 24px;
+    padding-top: 50px;
+}
+
+#small_p_r > a:last-of-type {
+    margin-right: 0;
+    margin-left: 24px;
+}
+
+#small_p_r > .p_r_sub > span {
+    font: 30px 'Nanum Gothic', sans-serif;
+    color: #000;
+}
+
+#small_p_r > .p_r_sub > a {
+    padding-left: 115px;
+    font: bold 14px 'Nanum Gothic', sans-serif;
+}
+
+#small_p_r > .p_r_sub > a:hover {
+    color: gray;
+}
+
+#Review_middle ul {
+    box-sizing: border-box;
+    margin-top: 55px;
+    margin-left: 45px;
+    width: 1125px;
+    border-bottom: 2px solid #9b9b9b;
+    margin-bottom: 25px;
+}
+
+#Review_middle ul li {
+    display: inline-block;
+    margin-right: 20px;
+    padding-bottom: 21px;
+}
+
+#Review_middle ul li:first-child {
+    font-weight: bold;
+}
+
+#Review_middle select:nth-of-type(1) {
+    margin-left: 870px;
+}
+
+#Review_middle select {
+    margin-left: 14px;
+    margin-bottom: 52px;
+}
+
+
+#Review_bottom {
+    padding-left: 43px;
+
+}
+
+
+#Review_bottom > .review {
+    width: 1125px;
+    border-bottom: 2px solid #9b9b9b;
+    margin-bottom: 30px;
+    padding-bottom: 30px;
+}
+
+#Review_bottom > .review > p:first-child {
+    margin-bottom: 22px;
+}
+
+#Review_bottom > .review > h4 {
+    font: bold 14px 'Nanum Gothic', sans-serif;
+    color: #878787;
+    margin-bottom: 30px;
+}
+
+
+#Review_bottom > .review > p:nth-of-type(2) {
+    font: 14px 'Nanum Gothic', sans-serif;
+    color: #878787;
+    margin-bottom: 20px;
+}
+
+#Review_bottom > .review > .r_b_add {
+    display: inline-block;
+    font: bold 14px/20px 'Nanum Gothic', sans-serif;
+    margin-bottom: 9px;
+}
+
+#Review_bottom > .review > .r_b_yesorno {
+    padding-top: 30px;
+    font: normal 14px 'Nanum Gothic', sans-serif;
+    color: #7b7b7b;
+}
+
+#Review_bottom > .review > .r_b_yesorno > span {
+    font: bold 14px 'Nanum Gothic', sans-serif;
+    color: #000;
+}
+
+#Review_bottom > .review > .r_b_yesorno > a {
+    display: inline-block;
+    width: 45px;
+    height: 25px;
+    border: 1px solid #000;
+    text-align: center;
+    font: bold 14px/25px 'Nanum Gothic', sans-serif;
+    color: #8e8e8e;
+    margin-left: 5px;
+}
+
+/*리뷰2*/
+
+#Review_bottom > .review_2 {
+    width: 1125px;
+    border-bottom: 2px solid #9b9b9b;
+    margin-bottom: 30px;
+    padding-bottom: 30px;
+}
+
+#Review_bottom > .review_2 > p:first-child {
+    margin-bottom: 22px;
+}
+
+#Review_bottom > .review_2 > h4 {
+    font: bold 14px 'Nanum Gothic', sans-serif;
+    color: #878787;
+    margin-bottom: 30px;
+}
+
+
+#Review_bottom > .review_2 > p:nth-of-type(2) {
+    font: 14px 'Nanum Gothic', sans-serif;
+    color: #878787;
+    margin-bottom: 20px;
+}
+
+#Review_bottom > .review_2 > .r_b_add {
+    display: inline-block;
+    font: bold 14px/20px 'Nanum Gothic', sans-serif;
+    margin-bottom: 9px;
+}
+
+#Review_bottom > .review_2 > .r_b_yesorno {
+    padding-top: 30px;
+    font: normal 14px 'Nanum Gothic', sans-serif;
+    color: #7b7b7b;
+}
+
+#Review_bottom > .review_2 > .r_b_yesorno > span {
+    font: bold 14px 'Nanum Gothic', sans-serif;
+    color: #000;
+}
+
+#Review_bottom > .review_2 > .r_b_yesorno > a {
+    display: inline-block;
+    width: 45px;
+    height: 25px;
+    border: 1px solid #000;
+    text-align: center;
+    font: bold 14px/25px 'Nanum Gothic', sans-serif;
+    color: #8e8e8e;
+    margin-left: 5px;
+}
+
+
+
+
+.add_last {
+    padding-left: 495px;
+    margin-bottom: 200px;
+}

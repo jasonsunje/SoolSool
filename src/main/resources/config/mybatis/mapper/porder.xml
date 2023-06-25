@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="porder">
+
+	<insert id="createOrder">
+		<!-- 주문 생성 쿼리 -->
+		INSERT INTO porder (
+		porder_no,
+		uuser_no,
+		porder_pdate,
+		porder_ptotal,
+		porder_pno,
+		product_no
+		)
+		VALUES (
+		PORDER_SEQ.NEXTVAL,
+		#{uuserNo},
+		sysdate,
+		#{pOrderPtotal},
+		#{pOrderPno},
+		#{productNo}
+		)
+	</insert>
+
+	<select id="getOrderById" resultType="porder">
+		<!-- 주문 조회 쿼리 -->
+		SELECT * FROM porder WHERE porder_no = #{porderNo}
+	</select>
+
+	<select id="getOrderByPno" resultType="map">
+		<!-- 주문 조회 쿼리 -->
+		SELECT
+		porder_no,
+		uuser_no,
+		porder_pdate,
+		porder_ptotal,
+		porder_pno,
+		product_no,
+		porder_ccheck,
+		porder_pcheck,
+		porder_pused,
+		coupon_no,
+		pstock_no,
+		porder_pay,
+		porder_dtotal,
+		porder_pstatus,
+		porder_gcheck,
+		odoption_no
+		FROM porder WHERE
+		PORDER_PNO = #{pOrderPno}
+	</select>
+
+	<select id="getOrderByUno" resultType="map">
+		<!-- 주문 조회 쿼리 -->
+		SELECT
+		porder_no,
+		uuser_no,
+		porder_pdate,
+		porder_ptotal,
+		porder_pno,
+		product_no,
+		porder_ccheck,
+		porder_pcheck,
+		porder_pused,
+		coupon_no,
+		pstock_no,
+		porder_pay,
+		porder_dtotal,
+		porder_pstatus,
+		porder_gcheck,
+		odoption_no
+		FROM porder WHERE
+		uuser_no = #{uuserNo}
+	</select>
+
+	<delete id="cancelOrder">
+		<!-- 주문 취소 쿼리 -->
+		DELETE FROM porder WHERE porder_no = #{porderNo}
+	</delete>
+
+
+	<!-- 주문 상품 조회 -->
+	<select id="listPorder" resultType="map">
+		SELECT
+		porder_no,
+		uuser_no,
+		porder_pdate,
+		porder_ptotal,
+		porder_pno,
+		product_no,
+		porder_ccheck,
+		porder_pcheck,
+		porder_pused,
+		coupon_no,
+		pstock_no,
+		porder_pay,
+		porder_dtotal,
+		porder_pstatus,
+		porder_gcheck,
+		odoption_no
+		FROM porder
+	</select>
+
+	<select id="getPno" resultType="int">
+		SELECT PNO_SEQ.NEXTVAL FROM DUAL
+	</select>
+
+</mapper>
+	

@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="uuser">
+
+	<!-- 로그인 -->
+	<select id="checkLogin" resultType="int" parameterType="uuser">
+		select uuser_no from uuser where uuser_id=#{uuserId} and uuser_password=#{uuserPassword}
+	</select>
+	
+	<select id="getUuser" resultType="uuser" parameterType="uuser">
+		select * from uuser where uuser_id=#{uuserId} and uuser_password=#{uuserPassword}
+	</select>
+	
+	<select id="checkStatus" resultType="int" parameterType="uuser">
+		select uuser_status from uuser where uuser_id=#{uuserId} and uuser_password=#{uuserPassword}
+	</select>
+	
+	<select id="selectNo" resultType="uuser" parameterType="int">
+		select * from uuser where uuser_no = #{uuserNo}
+	</select>
+	
+	<select id="findId" resultType="String" parameterType="uuser">
+		select uuser_id from uuser where uuser_name=#{uuserName} and uuser_phone=#{uuserPhone}
+	</select>
+	
+	<select id="findPw" resultType="String" parameterType="uuser">
+		select uuser_password from uuser where uuser_id=#{uuserId} and uuser_name=#{uuserName} and uuser_phone=#{uuserPhone}
+	</select>
+	
+	<select id="findNo" resultType="uuser" parameterType="uuser">
+		select * from uuser where uuser_id=#{uuserId} and uuser_name=#{uuserName} and uuser_phone=#{uuserPhone}
+	</select>
+	
+	<update id="updatePw" parameterType="uuser">
+		update uuser set uuser_password=#{uuserPassword} where uuser_id=#{uuserId} 
+	</update>
+	
+	<!-- 솔트 -->
+	<select id="salt" resultType="String" parameterType="String">
+		select uuser_salt from uuser where uuser_id=#{uuserId}
+	</select>
+	
+	<select id="saltNo" resultType="String" parameterType="int">
+		select uuser_salt from uuser where uuser_no=#{uuserNo}
+	</select>
+	
+	<!-- 회원가입  -->
+	<insert id="insert" parameterType="uuser">
+		insert into uuser 
+		(uuser_no,grade_no,uuser_id,uuser_password,uuser_salt,uuser_name,uuser_nickname,uuser_email,uuser_phone,uuser_gender,uuser_echeck,uuser_scheck,uuser_type,uuser_img,uuser_intro,uuser_joindate,uuser_update,uuser_address,uuser_status,uuser_agree,uuser_birth,uuser_authdate,uuser_snsid,uuser_snscode1,uuser_snscode2,uuser_lastdate)
+		 values
+		 (uuser_seq.nextVAL,#{gradeNo},#{uuserId},#{uuserPassword},#{uuserSalt},#{uuserName},#{uuserNickname},#{uuserEmail},#{uuserPhone},#{uuserGender},#{uuserEcheck},#{uuserScheck},#{uuserType},#{uuserImg},#{uuserIntro},#{uuserJoindate},#{uuserUpdate},#{uuserAddress},#{uuserStatus},#{uuserAgree},#{uuserBirth},#{uuserAuthdate},#{uuserSnsid},#{uuserSnscode1},#{uuserSnscode2},#{uuserLastdate})
+	</insert>
+	
+	<!-- 회원 탈퇴 -->
+	<update id="withdrawal" parameterType="int">
+		update uuser set uuser_status = 2 where uuser_no = #{uuserNo}
+	</update>
+	
+	<!-- 아이디 중복 검사 -->
+	<select id="checkId" parameterType="String" resultType="String">
+		select uuser_id from uuser where uuser_id=#{uuserId}
+	</select>
+	
+	
+	<!-- 회원 정보 no로 검색 -->
+	<select id="selectOne" resultType="uuser" parameterType="int">
+		select * from uuser where uuser_no=#{uuserNo}
+	</select>
+	
+	<!-- 회원 정보 수정 -->
+	<update id="update" parameterType="uuser">
+		update uuser set uuser_nickname=#{uuserNickname},uuser_password=#{uuserPassword},
+		uuser_phone=#{uuserPhone},uuser_echeck=#{uuserEcheck},uuser_scheck=#{uuserScheck}
+		where uuser_no=#{uuserNo}
+	</update>
+	
+	
+	<!-- 쿠폰 갯수?? -->
+	
+	<select id="countcoupon" parameterType="int" resultType="String">
+		select COUNT(coupon_no) from cdetail cd, coupon c where cd.coupon_no=#{c.couponNo}
+	</select>
+	
+	<!-- 쿠폰 상세 ??-->
+	<select id="couponDetail">
+		select c.coupon_name, c.coupon_edate, c.coupon_benefit from 
+		(select uuser_no from cdetail cd, uuser u where cd.uuser_no=u.uuserNo) t, coupon c
+ 		where t.uuser_no =#{c.couponNo}
+	</select>
+	
+	
+	<delete id="delete" parameterType="int">
+		delete uuser where uuser_no=#{uuserNo}
+	</delete>
+	
+	<select id="myPoint" resultType="Point" parameterType="int">
+		select * from point where uuser_no = #{uuserNo} 
+							order by point_start desc
+	</select>
+	
+	<!-- admin 회원 정보 조히 -->
+	<select id="selectAdminUser" resultType="uuser">
+		SELECT 
+			uuser_no,
+			grade_no,
+			uuser_name,
+			uuser_type,
+			uuser_nickname,
+			uuser_img,
+			uuser_intro,
+			uuser_joindate,
+			uuser_update,
+			uuser_address,
+			uuser_status,
+			uuser_agree,
+			uuser_phone,
+			uuser_email,
+			uuser_birth,
+			uuser_gender,
+			uuser_authdate,
+			uuser_SNScode1,
+			uuser_id,
+			uuser_echeck,
+			uuser_scheck
+			
+		from
+			uuser
+
+		ORDER BY uuser_no
+	</select>
+	
+</mapper>
+
+

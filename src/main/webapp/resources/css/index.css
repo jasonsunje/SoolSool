@@ -1,0 +1,316 @@
+@charset "utf-8";
+@import url('layout.css');
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700&family=Roboto:wght@100;300;400;700&display=swap');
+
+
+body,
+div,
+header,
+footer {
+    margin: 0;
+    padding: 0;
+}
+
+/*메인비주얼*/
+
+
+#mainvisual {
+    width: 100%;
+    height: 793px;
+    margin: auto;
+    background-color: aquamarine;
+}
+
+
+
+
+
+/*콘텐츠*/
+
+
+#contents {
+    width: 1205px;
+    margin: auto;
+    overflow: hidden;
+}
+
+
+
+
+
+/*위클리 베스트*/
+
+
+#contents #week {
+    width: 1205px;
+    padding-top: 229px;
+    padding-left: 6px;
+    box-sizing: border-box;
+}
+
+#contents #week > h2 {
+    text-align: center;
+    width: 100%;
+    margin: 0 auto;
+    font-family:'Roboto', sans-serif;;
+    margin-bottom: 58px;
+}
+
+#contents #week > ul {
+    padding-bottom: 77px;
+}
+
+#contents #week > ul > li {
+    float: left;
+    margin-left: 21px;
+    margin-bottom: 73px;
+    position: relative;
+}
+
+#contents #week > ul > li > div{
+    width: 369px;
+    height: 500px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: 0.3s ease;
+}
+
+#contents #week > ul > li > div > a{
+    display: block;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+}
+
+#contents #week > ul > li > div:hover {
+    opacity: 1;
+    background-color: rgba(0, 0, 0, .5);
+}
+
+
+
+#contents #week > ul > li > div > a > .p_name {
+    font-family:'Nanum Gothic', sans-serif;;
+    font-size: 20px;
+    color: #fff;
+    font-weight: bold;
+    padding-top: 226px;
+    margin-bottom: 5px;
+}
+
+
+#contents #week > ul > li > div > a > .price {
+    color: #dedede;
+    font-family:'Nanum Gothic', sans-serif;;
+    font-size: 20px;
+}
+
+#contents #week > ul > li > div > a > .price > .sale {
+    color: red;
+    font-size: 15px;
+    text-decoration: line-through;
+}
+
+#contents #week > ul > li > div > a > p > img {
+    margin-top:21px;
+    margin-bottom: 10px;
+}
+
+#contents #week > ul > li > div > a > .size {
+    color: #fff;
+    font-weight: bold;
+    font-family:'Nanum Gothic', sans-serif;;
+    font-size: 16px;
+}
+
+#contents #week > ul > li > div > a > .w_sub{
+    padding-top: 20px;
+    color: #e1e1e1;
+    font-family:'Nanum Gothic', sans-serif;;
+    font-size: 14px;
+}
+
+
+
+#contents > #week > .plusB {
+    padding-left: 495px;
+
+}
+
+
+/*NEW*/
+
+
+#contents #new {
+    clear: both;
+    width: 1205px;
+}
+
+#contents #new h2 {
+    text-align: center;
+    width: 100%;
+    margin: 0 auto;
+    font-family: 'Roboto';
+    margin-bottom: 58px;
+    margin-top: 232px;
+}
+
+#contents #new #new_p figure {
+    box-sizing: border-box;
+    float: left;
+    margin-left: 39px;
+    margin-bottom: 56px;
+}
+
+#contents #new #new_p figure:nth-of-type(1),
+#contents #new #new_p figure:nth-of-type(5),
+#contents #new #new_p figure:nth-of-type(9) {
+    margin-left: 0;
+}
+
+#contents #new #new_p figure {
+    position: relative;
+}
+
+#contents #new #new_p figure figcaption {
+    width: 270px;
+    height: 444px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: 0.5s ease;
+}
+
+#contents #new #new_p figure figcaption a{
+    display: block;
+    width:100%;
+    height: 100%;
+}
+
+
+#contents #new #new_p figure:hover > figcaption {
+    opacity: 1;
+    background-color: rgba(0, 0, 0, .5);
+}
+
+#contents #new #new_p figure figcaption a p:first-child {
+    padding-top: 200px;
+}
+
+#contents #new #new_p figure figcaption a p {
+    text-align: center;
+}
+#contents #new #new_p figure figcaption a p:last-child {
+    padding-top: 20px; color: #e1e1e1;
+    font-family:'Nanum Gothic', sans-serif;;
+    font-size: 14px;
+}
+
+#contents #new #new_p figure figcaption .p_name {
+    font-family:'Nanum Gothic', sans-serif;
+    font-size: 18px;
+    color: #fff;
+    padding-top: 226px;
+    margin-bottom: 5px;
+}
+
+#contents #new #new_p figure figcaption .p_color {
+    margin-top: 11px;
+    margin-bottom: 5px;
+
+}
+
+#contents #new #new_p figure figcaption .p_price {
+    color: #dedede;
+    font-family:'Nanum Gothic', sans-serif;
+    font-size: 20px;
+}
+
+#contents #new #new_p .plusB {
+    padding-left: 495px;
+
+}
+
+
+
+
+/*베스트 포토리뷰*/
+
+
+#contents #photo {
+    clear: both;
+    width: 1205px;
+    margin: auto;
+    position: relative;
+}
+
+#contents #photo > h2 {
+    padding-top: 342px;
+    font: bold 25px 'Nanum Gothic', sans-serif;
+}
+
+#contents #photo > .r_sub {
+    font: bold 14px 'Nanum Gothic', sans-serif;
+    color: #cfc9c9;
+}
+
+#contents #photo > a {
+    position: absolute;
+    top: 352px;
+    right: 3px;
+}
+
+#contents #photo > .review {
+    float: left;
+    width: 271px;
+    border: 1px solid #d9d9d9;
+    margin-top: 10px;
+    margin-bottom: 238px;
+    margin-right: 37px;
+    padding-bottom: 5px;
+}
+
+#contents #photo > .review:last-child {
+    margin-right: 0;
+}
+
+#contents #photo > .review > p > a > img {
+    padding-bottom: 5px;
+}
+
+
+#contents #photo > .review > .r {
+    font-size: 16px;
+    font-family:'Nanum Gothic', sans-serif;
+    color: #363636;
+    padding: 0 4px;
+}
+
+#contents #photo > .review > .name {
+    color: #757575;
+    font-size: 15px;
+    line-height: 30px;
+    font-family:'Nanum Gothic', sans-serif;
+    border-bottom: 1px solid #a0a0a0;
+    padding: 0 5px;
+}
+
+#contents #photo > .review > .r_r_sub {
+    color: #b9a156;
+    float: left;
+    margin-right: 40px;
+    padding: 5px 0 5px 5px;
+}
+
+#contents #photo > .review > .r_r_more > a {
+    color: #b9a156;
+    display: block;
+    padding-top: 5px;
+}
+
+#contents #photo > .review > .r_r_more > a:hover {
+    font-weight: bold;
+}

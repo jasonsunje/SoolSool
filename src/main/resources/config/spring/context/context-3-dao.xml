@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- Root Context: defines shared resources visible to all other web components -->
+
+	<bean id="adminDao" class="dao.admin.AdminDAO">
+		<constructor-arg ref="sqlSession" />
+	</bean>
+
+	<bean id="boardDao" class="dao.board.BoardDAO">
+		<constructor-arg ref="sqlSession" />
+	</bean>
+
+	<bean id="productDao" class="dao.product.ProductDAO">
+		<constructor-arg ref="sqlSession" />
+	</bean>
+
+	<bean id="mngdeliveryDao" class="dao.mngdelivery.MngdeliveryDAO">
+		<constructor-arg ref="sqlSession" />
+	</bean>
+
+	<bean id="uuserDao" class="dao.uuser.UuserDAO">
+		<property name="sqlSession" ref="sqlSession" />
+	</bean>
+
+	<bean id="ReviewDao" class="dao.review.ReviewDAO">
+		<constructor-arg ref="sqlSession" />
+	</bean>
+
+	<bean id="CsDao" class="dao.cs.CsDAO">
+		<constructor-arg ref="sqlSession" />
+	</bean>
+
+	<bean id="cartDao" class="dao.cart.CartDAO">
+		<constructor-arg ref="sqlSession" />
+	</bean>
+
+	<bean id="porderDao" class="dao.porder.PorderDAO">
+		<constructor-arg ref="sqlSession" />
+	</bean>
+
+</beans>

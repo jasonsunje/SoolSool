@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="coupon">
+
+	<insert id="insertcoupon">
+	
+	</insert>
+
+	<select id="countcoupon" parameterType="int" resultType="int">
+		select count(cs.CSERIAL_NO)as count 
+		from cserial cs, cdetail cd 
+		where cs.CSERIAL_NO = cd.CSERIAL_NO 
+		and cd.UUSER_NO = #{uuserNo} 
+		and cs.CSERIAL_STATUS = 2 
+		<![CDATA[and to_date(sysdate) <= to_date(cs.CSERIAL_EDATE_END)]]>
+	</select>
+	
+	<!-- 사용가능한 쿠폰 초회 -->
+</mapper>

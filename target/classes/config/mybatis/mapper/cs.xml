@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cs">
+	
+	<select id="selectList" resultType="map" parameterType="map">
+		select * from 
+			(select rownum rn,t.* from
+				(select c.*,u.uuser_id,u.uuser_nickname from cs c,uuser u where c.uuser_no = u.uuser_no and c.uuser_no = #{uuserNo}
+					<if test="type != null">
+						<if test="type == 'cs_no'">
+							and cs_no=#{word}
+						</if>
+						<if test="type != 'cs_no'">
+							and ${type} like '%${word}%'
+						</if>
+					</if>
+					<!-- 
+						값으로 취급할때 #{}
+						글자 자체로 처리하려면 ${}
+					 -->
+				 order by c.groupno desc,orderno asc,depth asc) t
+			)
+		<![CDATA[
+			where rn >= #{first} and rn <= #{last}
+		]]>
+	</select>
+	
+	<select id="selectOne" resultType="cs" parameterType="int">
+		select * from cs c,uuser u where c.uuser_no = u.uuser_no and cs_no = #{csNo}
+	</select>
+	
+	<select id="getTotal" resultType="int" parameterType="map">
+		select count(*) from cs c,uuser u where c.uuser_no = u.uuser_no
+		<if test="type != null">
+			<if test="type == 'cs_no'">
+				and cs_no=#{word}
+			</if>
+			<if test="type != 'cs_no'">
+				and ${type} like '%${word}%'
+			</if>
+		</if>
+	</select>
+	
+	<update id="readCount" parameterType="int">
+		update cs set cs_hit = cs_hit + 1 where cs_no = #{csNo}
+	</update>
+	
+	<select id="getContent" parameterType="int" resultType="map">
+		select c.*,u.uuser_nickname,u.uuser_id from cs c,uuser u where c.uuser_no = u.uuser_no and c.cs_no = #{csNo}
+	</select>
+	
+	<!-- <insert id="insert" parameterType="board">
+		insert into board values(board_seq.nextval,#{no},#{title},#{content},#{filename},0,sysdate)
+	</insert> -->
+	
+	<insert id="insert" parameterType="cs">
+		insert into cs values(#{csNo},#{uuserNo},#{csTitle},#{csContent},sysdate,0,#{groupno},#{orderno},#{depth},#{csFileTitle})
+	</insert>
+	
+	<delete id="delete" parameterType="int">
+		delete cs where cs_no = #{csNo}
+	</delete>
+	
+	<update id="update" parameterType="cs">
+		update cs set cs_title=#{csTitle},cs_content=#{csContent} where cs_no=#{csNo}
+	</update>
+	
+	<select id="getSeq" resultType="int">
+		select cs_seq.nextval from dual
+	</select>
+	
+	
+	<!-- 가장마지막에쓴댓글을 위로 -->
+	<update id="updateOrderno" parameterType="cs">
+		update cs set orderno = orderno + 1 where groupno=#{groupno} and orderno >= #{orderno}
+	</update>
+	
+</mapper>
+
+
+
+

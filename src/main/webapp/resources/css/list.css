@@ -1,0 +1,254 @@
+@charset "utf-8";
+@import url('layout.css');
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700&family=Roboto:wght@100;300;400;700&display=swap');
+
+
+/*경로*/
+
+
+#link{border-top:1px solid #bbb7b1;}
+#link ul{
+    width: 1205px; box-sizing: border-box;
+    padding-left: 1099px;
+    padding-top: 46px;
+    margin-bottom: 80px;
+}
+#link ul li{float: left;}
+#link ul li a{
+    font: normal 13px 'Nanum Gothic', sans-serif;
+    color: #717171;
+}
+#link ul li a:last-of-type{color:#000;}
+
+
+
+
+
+
+
+/*콘텐츠*/
+
+
+#con_top #toptotop{}
+#con_top #toptotop h1{
+    font:bold 30px 'Roboto', sans-serif; color:#333;
+    text-align: center;
+}
+#con_top #toptotop p:nth-of-type(1){
+    float: left;
+}
+#con_top #toptotop p:nth-of-type(2){
+    float: right;
+}
+
+/*베스트 제품*/
+#con_top #best_p_contents {
+    width:1205px;
+    height: 711px;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+#con_top #best_p_contents ul {
+    width: 2500px;
+}
+
+#con_top #best_p_contents ul .best_p {
+    float: left;
+    width: 266px;
+    height: 681px;
+    margin-left: 43px;
+    margin-top: 30px;
+    box-sizing: border-box;
+}
+
+#con_top #best_p_contents ul .best_p:first-child {
+    margin-left: 5px;
+}
+
+#con_top #best_p_contents ul .best_p {
+    position: relative;
+}
+
+#con_top #best_p_contents ul .best_p .p_btn {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    background-color: rgba(0, 0, 0, 0.35);
+    opacity: 0;
+    box-sizing: border-box;
+    margin-top: 341px;
+    transition: 0.35s ease;
+    width: 266px;
+    height: 60px;
+    padding-top: 15px;
+}
+
+#con_top #best_p_contents ul .best_p:hover > .p_btn{
+    opacity: 1; 
+}
+
+#con_top #best_p_contents ul .best_p .p_btn a:first-child {
+    margin-left: 75px;
+}
+
+#con_top #best_p_contents ul .best_p .p_btn a {
+    margin-left: 19px;
+}
+
+#con_top #best_p_contents ul .best_p .b_p_sub .p_name{
+    margin-top: 20px;
+    font:bold 13px 'Nanum Gothic', sans-serif; color: #030303;
+    margin-bottom: 13px;
+}
+#con_top #best_p_contents ul .best_p .b_p_sub .p_price{
+    font:bold 14px 'Nanum Gothic', sans-serif; color: #333;
+     margin-bottom:10px;
+}
+#con_top #best_p_contents ul .best_p .b_p_sub .sub_sub{
+    font:12px 'Nanum Gothic', sans-serif; color: #333;
+     margin-bottom:10px;
+}
+
+#con_top #best_p_contents ul .best_p .b_p_sub .coment{
+    font:12px 'Nanum Gothic', sans-serif; color:#7a7a7a;
+    margin-bottom: 13px;
+}
+
+
+#con_middle{
+    border-top: 1px solid #bbb7b1;
+    padding-top: 125px;
+}
+
+#con_middle .cm{
+    text-align: center;
+}
+#con_middle .cm li{
+    display: inline-block;border-left: 1px solid #333;
+}
+#con_middle .cm li a{
+    display:block;
+    text-align: center;
+    width: 80px; display: block;
+}
+#con_middle .cm li:last-child{
+    border-right: 1px solid #333;
+}
+
+
+
+#con_middle .order{
+    margin-top: 65px;
+    margin-bottom:60px;
+    float: right;
+}
+#con_middle .order li{
+    float: left;
+    padding-right: 10px;
+}
+
+
+
+/*하단 제품들*/
+
+#con_bottom{clear: both;}
+
+
+
+#con_bottom ul{}
+
+#con_bottom ul .product{
+    float: left;
+    padding-right:43px;
+    position: relative;
+}
+
+
+#con_bottom ul .product:nth-child(4n){
+    padding-right: 0;
+}
+
+#con_bottom ul .product .p_btn {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    background-color: rgba(0, 0, 0, 0.35);
+    opacity: 0;
+    box-sizing: border-box;
+    margin-top: 341px;
+    transition: 0.35s ease;
+    width: 266px;
+    height: 60px;
+    padding-top: 15px;
+}
+
+#con_bottom ul .product:hover > .p_btn{
+    opacity: 1; 
+}
+
+#con_bottom ul .product .p_btn a:first-child {
+    margin-left: 75px;
+}
+
+#con_bottom ul .product .p_btn a {
+    margin-left: 19px;
+}
+
+
+#con_bottom ul .product .p_sub .p_name{
+    margin-top: 20px;
+    font:bold 13px 'Nanum Gothic', sans-serif; color: #030303;
+    margin-bottom: 13px;
+}
+#con_bottom ul .product .p_sub .p_price{
+    font:bold 14px 'Nanum Gothic', sans-serif; color: #333;
+     margin-bottom:10px;
+}
+#con_bottom ul .product .p_sub .sub_sub{
+    font:12px 'Nanum Gothic', sans-serif; color: #333;
+     margin-bottom:10px;
+}
+
+#con_bottom ul .product .p_sub .coment{
+    font:12px 'Nanum Gothic', sans-serif; color:#7a7a7a;
+    margin-bottom: 13px;
+}
+
+#con_bottom ul .product .p_sub .p_color img{
+    margin-right:5px;
+    margin-bottom: 55px;
+}
+
+
+#con_bottom #page_list{
+    clear: both;
+}
+#con_bottom #page_list>div{
+    height: 175px;
+    padding-top: 30px;
+    padding-left: 466px;
+}
+#con_bottom #page_list .list_btn{
+    margin-right: 25px;padding-top:5px;
+}
+#con_bottom #page_list .list_btn:last-child{
+    margin-right: 0;
+}
+#con_bottom #page_list a,
+#con_bottom #page_list ul{
+    display: block;
+    float: left;
+}
+#con_bottom #page_list ul li{
+    float: left;margin-right: 25px;
+}
+
+
+
+
+
+
+
