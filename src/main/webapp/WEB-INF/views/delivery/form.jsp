@@ -47,7 +47,7 @@
 	<div class="contents" align="center">
 		<div class="message" align="center">배송지를 등록해 주세요</div>
 		<br> <input type="button" value="배송지 추가하기+" id="addressPluse"
-			onclick="location.href='${pageContext.request.contextPath}/delievery/insertform'">
+			onclick="location.href='${pageContext.request.contextPath}/delivery/insertform'">
 	</div>
 
 </div>
