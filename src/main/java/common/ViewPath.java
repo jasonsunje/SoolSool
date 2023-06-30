@@ -24,4 +24,5 @@ public interface ViewPath {
 		String POINT = "/WEB-INF/views/point/";
 		String COUPON = "/WEB-INF/views/coupon/";
 		String MAP = "/WEB-INF/views";
+		//브랜치 태스트
 }
