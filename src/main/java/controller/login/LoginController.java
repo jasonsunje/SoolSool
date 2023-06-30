@@ -52,7 +52,7 @@ public class LoginController {
 	@RequestMapping("/login/check")
 	public String checkLogin(HttpServletRequest request,HttpServletResponse response,UuserVO vo) {
 		
-		// �븫�샇�솕
+		//  븫 샇 솕
 		String salt = loginService.getSaltById(vo.getUuserId());
 		String password = vo.getUuserPassword();
 		
@@ -62,7 +62,7 @@ public class LoginController {
 		UuserVO checkVo = loginService.getUuser(vo);
 		System.out.println("checkVo : " + checkVo);
 		
-//		// �쑀���쓽 �긽�깭( 0,1,2 )
+//		//  쑀   쓽  긽 깭( 0,1,2 )
 		int st = checkVo.getUuserStatus();
 		if(st == 2) {
 			return "redirect:/uuser/joinform";
@@ -72,14 +72,14 @@ public class LoginController {
 		String nickName = checkVo.getUuserNickname();
 		
 		
-//		// �쑀���쓽 �긽�깭( 0,1,2 )
+//		//  쑀   쓽  긽 깭( 0,1,2 )
 //		int st = loginService.checkStatus(vo);
 //		if(st == 2) {
 //			return "redirect:/uuser/joinform";
 //		}
 //		
 //		int no = loginService.checkLogin(vo);
-		
+//
 
 		String msg = null;
 		boolean check = false;
@@ -91,15 +91,15 @@ public class LoginController {
 			
 			request.getSession().setAttribute("login", no);
 			request.getSession().setAttribute("nickName", nickName);
-			//�븘�씠�뵒 湲곗뼲�븯湲� 泥댄겕 �쑀臾�
+			// 븘 씠 뵒 湲곗뼲 븯湲  泥댄겕  쑀臾 
 			String ckid = request.getParameter("ckid");
 			
 			Cookie ck = null;
 			
-			//荑좏궎�뙆�씪 �씫�뼱 �삤湲�...
+			//荑좏궎 뙆 씪  씫 뼱  삤湲 ...
 			Cookie[] cks = request.getCookies();
 			
-			//湲곗〈 荑좏궎�뙆�씪 寃��깋
+			//湲곗〈 荑좏궎 뙆 씪 寃  깋
 			if(cks != null){
 				for(Cookie c : cks){
 					if(c.getName().equals("ckid")){
@@ -109,26 +109,26 @@ public class LoginController {
 				}
 			}
 			
-			if(ckid != null){ //泥댄겕 �릺�뼱 �엳�쓣�븣
-				if(ck == null){ // 荑좏궎�뙆�씪 �뾾�쓣�븣
+			if(ckid != null){ //泥댄겕  릺 뼱  엳 쓣 븣
+				if(ck == null){ // 荑좏궎 뙆 씪  뾾 쓣 븣
 					ck = new Cookie("ckid",vo.getUuserId());
 					
-					//root濡� 寃쎈줈 �꽕�젙
+					//root濡  寃쎈줈  꽕 젙
 					ck.setPath("/");
 				
-					//�쑀�슚�떆媛� �꽕�젙
+					// 쑀 슚 떆媛   꽕 젙
 					ck.setMaxAge(60*60*24);
 				
-					//�겢�씪�씠�뼵�듃�뿉寃� 荑좏궎�뙆�씪 �깮�꽦
+					// 겢 씪 씠 뼵 듃 뿉寃  荑좏궎 뙆 씪  깮 꽦
 					response.addCookie(ck);
-				}else{ //�엳�쓣�븣
+				}else{ // 엳 쓣 븣
 					if(!ck.getValue().equals(vo.getUuserId())){
 						ck.setValue(vo.getUuserId());
 						ck.setPath("/");
 						response.addCookie(ck);
 					}
 				}
-			}else{ // 泥댄겕 �븞�릺�뼱 �엳�쓣�븣
+			}else{ // 泥댄겕  븞 릺 뼱  엳 쓣 븣
 				if(ck != null){
 					if(ck.getValue().equals(vo.getUuserId())){
 						ck.setPath("/");
@@ -208,7 +208,7 @@ public class LoginController {
 	}
 	
 	
-	// 鍮꾨�踰덊샇 �옱�꽕�젙
+	// 鍮꾨 踰덊샇  옱 꽕 젙
 	@RequestMapping("/login/newPw")
 	public String newPw(Model model,UuserVO vo,HttpSession session) {
 		
