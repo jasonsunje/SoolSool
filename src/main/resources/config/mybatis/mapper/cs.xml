@@ -4,7 +4,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="cs">
 	
-	<select id="selectList" resultType="map" parameterType="map">
+	<select id="selectList" resultType="map" parameterType="map"> <!-- map타입 jsp에서 대문자로 -->
 		select * from 
 			(select rownum rn,t.* from
 				(select c.*,u.uuser_id,u.uuser_nickname from cs c,uuser u where c.uuser_no = u.uuser_no and c.uuser_no = #{uuserNo}
@@ -25,12 +25,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<![CDATA[
 			where rn >= #{first} and rn <= #{last}
 		]]>
+
 	</select>
 	
 	<select id="selectOne" resultType="cs" parameterType="int">
 		select * from cs c,uuser u where c.uuser_no = u.uuser_no and cs_no = #{csNo}
 	</select>
 	
+
 	<select id="getTotal" resultType="int" parameterType="map">
 		select count(*) from cs c,uuser u where c.uuser_no = u.uuser_no
 		<if test="type != null">
@@ -47,7 +49,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		update cs set cs_hit = cs_hit + 1 where cs_no = #{csNo}
 	</update>
 	
-	<select id="getContent" parameterType="int" resultType="map">
+	<select id="getContent" parameterType="map" resultType="map">
 		select c.*,u.uuser_nickname,u.uuser_id from cs c,uuser u where c.uuser_no = u.uuser_no and c.cs_no = #{csNo}
 	</select>
 	
@@ -60,7 +62,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</insert>
 	
 	<delete id="delete" parameterType="int">
-		delete cs where cs_no = #{csNo}
+		delete from cs where cs_no = #{csNo}
 	</delete>
 	
 	<update id="update" parameterType="cs">
