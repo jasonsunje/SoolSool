@@ -1,4 +1,4 @@
-package controller.cs;
+ package controller.cs;
 
 import java.io.File;
 import java.io.IOException;
@@ -25,6 +25,7 @@ import common.Paging;
 import common.ViewPath;
 import service.cs.CsService;
 import vo.cs.CsVO;
+import vo.file.FileVO;
 import vo.uuser.UuserVO;
 
 @Controller
@@ -96,7 +97,7 @@ public class CsController {
 	}
 	
 	@RequestMapping("/cs/write")
-	public String write(Model model,HttpSession session, CsVO vo, @RequestParam(value="csFile", required=false)MultipartFile photo) {
+	public String write(Model model,HttpSession session, CsVO vo, @RequestParam("csFile")MultipartFile photo) {
 		Integer no = (Integer)session.getAttribute("login");
 		
 		if(no == null) {
@@ -127,6 +128,7 @@ public class CsController {
 			
 				saveFile = new File(savePath,filename);
 			}
+			
 			
 			
 			try {
@@ -220,9 +222,9 @@ public class CsController {
 	
 	
 	
-	@RequestMapping("/board/reply/{seq}")
-	public String reply(Model model, @PathVariable("seq") int seq) {
-		model.addAttribute("seq", seq);
+	@RequestMapping("/cs/reply/{csNo}")
+	public String reply(Model model, @PathVariable("csNo") int csNo) {
+		model.addAttribute("seq", csNo);
 		
 		return ViewPath.CS + "write.jsp";
 	}
