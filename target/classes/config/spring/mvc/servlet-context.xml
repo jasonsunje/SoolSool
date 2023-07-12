@@ -89,4 +89,6 @@
 	</beans:bean>
 	<beans:bean class="controller.map.MapController"></beans:bean>
 
+	
+	
 </beans:beans>
