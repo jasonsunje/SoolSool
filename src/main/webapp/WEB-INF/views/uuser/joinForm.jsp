@@ -38,7 +38,23 @@
 		<tr>
 			<td>E-Mail</td>
 			<td><input type="text" name="uuserEmail" id="uuserEmail" tabindex="6">
-				<br><span id="emailError"></span>
+				<select class="emailControl" name="uuserEmail2" id="uuserEmail2">					
+					<option>직접입력</option>
+					<option>@naver.com</option>
+					<option>@daum.net</option>
+					<option>@gmail.com</option>
+					<option>@hanmail.com</option>
+					<option>@yahoo.co.kr</option>
+				</select>
+				<button type="button" class="btnPrimary" id="mailCheckBtn">본인인증</button>
+			</td>
+		</tr>
+		<tr>
+			<td>이메일 인증</td>
+			<td >
+				<input id="mailCheckInput" placeholder="인증번호 6자리를 입력해주세요!" disabled="disabled" maxlength="6" size="30">
+				<button type="button" id="mailCheck">인증확인</button>
+				<br><span id="mailCheckError"></span>
 			</td>
 		</tr>
 		<tr>
@@ -77,12 +93,19 @@
 	const emailTag = document.getElementById('uuserEmail');
 	const regID = /^[A-Za-z0-9]{8,15}$/;
 	const regPW = /^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{8,20}$/;
-	const regEmail = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
+	//const regEmail = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
 	const form = document.getElementById('form');
 	const pwError = document.getElementById('pwError');
     const repwError = document.getElementById('repwError');
 	//const nickError = document.getElementByid('nickError');
 	const emailError = document.getElementById('emailError');
+	const mailCheckBtn = document.getElementById('mailCheckBtn');
+	const mailCheckInput = document.getElementById('mailCheckInput');
+	const emailTag2 = document.getElementById("uuserEmail2");
+	const resultMsg = document.getElementById('mailCheckError');
+	const mailCheck = document.getElementById('mailCheck');
+	let code;
+	
 	
 	function checkJoin() {
 		if (document.join.uuserId.value == "") {
@@ -189,18 +212,38 @@
 	
 	// 이메일 
 	
-	emailTag.addEventListener("blur",()=>{
-		if(emailTag.value == ""){
-			emailError.innerHTML = "";	
-		}else if(!regEmail.test(emailTag.value)){
-			emailError.innerHTML = "이메일 형식이 아닙니다";
-			emailError.style.cssText = "color: red; font-size: 10px;";
-			emailError.focus();
+
+	
+	mailCheckBtn.addEventListener("click", ()=>{
+		const email = $('#uuserEmail').val() + $('#uuserEmail2').val(); // 이메일 주소값 가져오기
+		console.log("완성된 이메일" + email); // 이메일 확인
+		
+		
+		$.ajax({
+			type : 'post',
+			url : '<c:url value="/uuser/mailCheck?email="/>' + email,
+			success : function(data){
+				console.log("data : " + data);
+				code = data;
+				alert("인증번호가 전송되었습니다.");
+				mailCheckInput.disabled = false;
+			}
+		});
+	});
+	
+	mailCheck.addEventListener("click", ()=>{
+	
+		if(mailCheckInput.value === code){
+			resultMsg.innerHTML = "인증번호가 일치합니다";
+			resultMsg.style.cssText = "color: blue; font-size: 10px;";
 		}else{
-			emailError.innerHTML = "올바른 이메일 형식입니다";	
-			emailError.style.cssText = "color: blue; font-size: 10px;";
+			resultMsg.innerHTML = "인증번호가 불일치 합니다. 다시 확인해주세요";
+			resultMsg.style.cssText = "color: red; font-size: 10px;";
 		}
 	});
+	
+	
+	
 	
 	
 	

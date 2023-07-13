@@ -37,7 +37,7 @@
 				</c:when>
 				<c:otherwise>
 					<a href="${pageContext.request.contextPath }/login/loginform">Login</a> | 
-					<a href="${pageContext.request.contextPath }/uuser/joinform">Join</a> | 
+					<a href="${pageContext.request.contextPath }/uuser/joincheck">Join</a> | 
 				</c:otherwise>
 			</c:choose>
 			<a href="${pageContext.request.contextPath }/product/list">Shop</a> | 
