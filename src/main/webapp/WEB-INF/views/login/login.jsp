@@ -14,6 +14,13 @@
 		
 		return true;
 	}
+	
+	
+	
+	
+	
+	
+	
 </script>
 <%@ include file="/WEB-INF/views/layout/header.jsp" %>
 	<div align="center">

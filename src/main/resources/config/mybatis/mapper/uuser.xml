@@ -37,6 +37,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		update uuser set uuser_password=#{uuserPassword} where uuser_id=#{uuserId} 
 	</update>
 	
+	
+	
 	<!-- 솔트 -->
 	<select id="salt" resultType="String" parameterType="String">
 		select uuser_salt from uuser where uuser_id=#{uuserId}
