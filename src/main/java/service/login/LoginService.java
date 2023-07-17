@@ -17,11 +17,11 @@ public class LoginService {
 		return uuserDao.checkLogin(vo);
 	}
 	
+	
 	// 회원 상태
 	public int checkStatus(UuserVO vo) {
 		return uuserDao.checkStatus(vo);
 	}
-	
 	
 	// 아이디 찾기
 	public String findId(UuserVO vo) {

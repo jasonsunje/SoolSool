@@ -31,9 +31,14 @@ public class UuserDAO {
 		return no;
 	}
 
+	// 로그인 실패
+	
+	public String loginFail(UuserVO vo) {
+		return sqlSession.selectOne("uuser.loginFail",vo);
+	}
+	
 	// 회원상태 가져오기
 	public int checkStatus(UuserVO vo) {
-		System.out.println(vo + "!!!!!!!!!!!!!!!!!!!!!!");
 		return sqlSession.selectOne("uuser.checkStatus", vo);
 	}
 
