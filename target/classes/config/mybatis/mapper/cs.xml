@@ -32,7 +32,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select * from cs c,uuser u where c.uuser_no = u.uuser_no and cs_no = #{csNo}
 	</select>
 	
-
 	<select id="getTotal" resultType="int" parameterType="map">
 		select count(*) from cs c,uuser u where c.uuser_no = u.uuser_no
 		<if test="type != null">

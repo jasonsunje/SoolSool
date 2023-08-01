@@ -22,13 +22,13 @@ public class ReviewDAO {
 	}
 	
 	public ReviewVO selectOne(int reviewNo) {
+		System.out.println(reviewNo+ "daonum");
 		return sqlSession.selectOne("review.selectOne",reviewNo);
 	}
 	
 	public int getTotal(Map<String,Object> map) {
 		return sqlSession.selectOne("review.getTotal" , map);
 	}
-	
 	
 	public Map<String, Object> getContent(int reviewNo){
 		return sqlSession.selectOne("review.getContent", reviewNo);

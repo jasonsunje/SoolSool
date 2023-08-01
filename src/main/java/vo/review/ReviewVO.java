@@ -12,7 +12,7 @@ public class ReviewVO {
 	private int reviewPcheck; // 사진 여부
 	
 	
-	// 테이블에도 컬럼을 추가???????????????
+
 	
 	private int groupno; //글의 그룹을 정하는 숫자 보통 원글의 시퀀스
 	private int orderno; //출력 순서
