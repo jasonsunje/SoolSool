@@ -5,8 +5,9 @@
 <%@include file = "/WEB-INF/views/layout/myHeader.jsp" %>
 	<c:set var="cpath" value="${pageContext.request.contextPath }"/>		
 	<div align="center">
-		<table class="reviewTable">
+		<table class="reviewTable" border="1">
 			<tr>
+				<th>사진</th>
 				<th>닉네임</th>
 				<th>글내용</th>
 				<th>아이디</th>
@@ -24,6 +25,7 @@
 				<c:otherwise>
 					<c:forEach var="dto" items="${list }">
 						<tr>
+							<td>${dto.REVIEW_PHOTO }</td>
 							<td>${dto.UUSER_NICKNAME }</td>
 							<td>
 								<c:forEach var="i" begin="1" end="${dto.DEPTH }" step="1">

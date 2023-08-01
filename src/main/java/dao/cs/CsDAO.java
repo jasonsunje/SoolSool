@@ -18,6 +18,7 @@ public class CsDAO {
 	
 	public List<Map<String,Object>> selectList(Map<String,Object> map){
 		System.out.println(map.get("uuserNo")+"dao");
+		System.out.println(map+"cs");
 		return sqlSession.selectList("cs.selectList" , map);
 	}
 	

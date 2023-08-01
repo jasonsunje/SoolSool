@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.util.List;
 import java.util.Map;
 
+import dao.product.ProductDAO;
 import dao.review.ReviewDAO;
 import dao.uuser.UuserDAO;
 import vo.review.ReviewVO;
@@ -16,6 +17,7 @@ public class ReviewService {
 
 	private ReviewDAO reviewDao;
 	private UuserDAO uuserDAO;
+	private ProductDAO productDao;
 	
 	public ReviewService(ReviewDAO reviewDao) {
 		this.reviewDao = reviewDao;
@@ -26,15 +28,15 @@ public class ReviewService {
 		
 		List<Map<String,Object>> list = reviewDao.selectList(map);
 		
+		System.out.println(list + "서비스리스트");
 		if(list.isEmpty()) {
 			list = null;
 		}
-		
 		return list;
 	}
 	
-	public ReviewVO selectOne(int no) {
-		return reviewDao.selectOne(no);
+	public ReviewVO selectOne(int seq) {
+		return reviewDao.selectOne(seq);
 	}
 	
 	public int getTotal(Map<String, Object> map) {
@@ -43,7 +45,10 @@ public class ReviewService {
 	
 	public Map<String, Object> getContent(int reviewNo){
 		
+		System.out.println(reviewNo);
+		
 		Map<String, Object> map = reviewDao.getContent(reviewNo);
+		
 		for(var key : map.keySet()) {
 			System.out.println(key);
 		}
@@ -52,7 +57,8 @@ public class ReviewService {
 		
 		StringBuffer buf = new StringBuffer();
 		
-		Clob clob = (Clob)map.get("CONTENT");
+		
+		Clob clob = (Clob)map.get("REVIEW_CONTENT");
 		
 		BufferedReader br = null;
 		try {
@@ -77,9 +83,12 @@ public class ReviewService {
 	public int insert(ReviewVO vo) {
 		int reviewNo = reviewDao.getSeq();
 		
+	
+		System.out.println(vo + "!@#@!#!@");
 		if(vo.getReviewNo() !=0) { // 댓글
 			ReviewVO ref = reviewDao.selectOne(vo.getReviewNo());
 			
+			System.out.println(ref+"!!!!");
 			vo.setGroupno(ref.getGroupno());
 			vo.setOrderno(ref.getOrderno() + 1);
 			vo.setDepth(ref.getDepth() + 1);

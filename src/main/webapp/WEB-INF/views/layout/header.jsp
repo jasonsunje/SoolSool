@@ -8,7 +8,66 @@
 <head>
 <meta charset="UTF-8">
 <style type="text/css">
-	
+       
+        .product_img {
+            width: 80px;
+            height: 100px;
+        }
+
+        .product {
+            margin: 0 auto;
+            background-color: aqua;
+            width: 1000px;
+            height: 120px;
+        }
+
+        .review {
+            margin: 0 auto;
+
+        }
+
+        .how {
+            background-color: blueviolet;
+        }
+
+        .star-rating {
+            display: flex;
+            flex-direction: row-reverse;
+            font-size: 2.25rem;
+            line-height: 2.5rem;
+            justify-content: space-around;
+            padding: 0 0.2em;
+            text-align: center;
+            width: 5em;
+        }
+
+        .star-rating input {
+            display: none;
+        }
+
+        .star-rating label {
+            -webkit-text-fill-color: transparent;
+            /* Will override color (regardless of order) */
+            -webkit-text-stroke-width: 2.3px;
+            -webkit-text-stroke-color: #2b2a29;
+            cursor: pointer;
+        }
+
+        .star-rating :checked~label {
+            -webkit-text-fill-color: gold;
+        }
+
+        .star-rating label:hover,
+        .star-rating label:hover~label {
+            -webkit-text-fill-color: #fff58c;
+        }
+
+        .content {
+            width: 800px;
+            height: 200px;
+            resize:none;
+        }
+
 </style>
 <link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/style.css">
 <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>

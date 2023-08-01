@@ -82,7 +82,7 @@
 
     <div>
         <div class="review">
-            <form action="${pageContext.request.contextPath }/uuser/review" method="post" name ="review">
+            <form action="${pageContext.request.contextPath }/uuser/review" method="post" name ="review" enctype="multipart/form-data">
                 <c:if test="${reviewNo != null}">
                 	<input type="hidden" name="no" value="${reviewNo}">
                 </c:if>
@@ -102,28 +102,33 @@
                         </tr>
                     </table>
                 </div>
-                <div class="star-rating space-x-4 mx-auto">
-                    <input type="radio" id="5-stars" name="rating" value="5" v-model="ratings" />
+                <div class="star-rating space-x-4 mx-auto" >
+                    <input type="radio" id="5-stars" name="reviewStar" value="5" v-model="ratings" />
                     <label for="5-stars" class="star pr-4">★</label>
-                    <input type="radio" id="4-stars" name="rating" value="4" v-model="ratings" />
+                    <input type="radio" id="4-stars" name="reviewStar" value="4" v-model="ratings" />
                     <label for="4-stars" class="star">★</label>
-                    <input type="radio" id="3-stars" name="rating" value="3" v-model="ratings" />
+                    <input type="radio" id="3-stars" name="reviewStar" value="3" v-model="ratings" />
                     <label for="3-stars" class="star">★</label>
-                    <input type="radio" id="2-stars" name="rating" value="2" v-model="ratings" />
+                    <input type="radio" id="2-stars" name="reviewStar" value="2" v-model="ratings" />
                     <label for="2-stars" class="star">★</label>
-                    <input type="radio" id="1-star" name="rating" value="1" v-model="ratings" />
+                    <input type="radio" id="1-star" name="reviewStar" value="1" v-model="ratings" />
                     <label for="1-star" class="star">★</label>
                 </div>
-                <textarea class="content" name="content">
+              
+                <textarea id="summernote" rows="15" cols="65" name="reviewContent">
 
                 </textarea>
                 <br>
-                <input type="file" title="사진첨부">
+                <input type="file" name="photo" title="사진첨부">
                 <br>
                 <button onclick="javascript:checkReview()">리뷰작성</button>
             </form>
         </div>
     </div>
 </body>
-
+<script type="text/javascript">
+	$(document).ready(function() {
+		  $('#summernote').summernote();
+		});
+</script>
 <%@include file = "/WEB-INF/views/layout/footer.jsp" %>
