@@ -103,7 +103,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 							order by point_start desc
 	</select>
 	
-	<!-- admin 회원 정보 조히 -->
+	<!-- admin 회원 정보 조회 -->
 	<select id="selectAdminUser" resultType="uuser">
 		SELECT 
 			uuser_no,

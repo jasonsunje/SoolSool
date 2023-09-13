@@ -290,7 +290,7 @@ public class UuserController {
 		Random r = new Random();
 		int checkNum = r.nextInt(888888) + 111111;
 		System.out.println("인증번호 : " + checkNum);
-		authNumber = checkNum;
+		this.authNumber = checkNum;
 	}
 	
 	public String joinEmail(String email) {
