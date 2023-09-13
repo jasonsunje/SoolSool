@@ -44,6 +44,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		</if>
 	</select>
 	
+	<!-- 조회수 -->
 	<update id="readCount" parameterType="int">
 		update cs set cs_hit = cs_hit + 1 where cs_no = #{csNo}
 	</update>
